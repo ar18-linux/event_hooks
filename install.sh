@@ -19,7 +19,7 @@ chmod +x "${install_dir}/${module_name}/"* -R
 rm -f "/etc/acpi/actions/headphone-jack-handler.sh"
 mkdir -p "/etc/acpi/actions"
 
-cp "${install_dir}/${module_name}/handlers/*" "/etc/acpi/actions"
-cp "${install_dir}/${module_name}/events/*" "/etc/acpi/events"
+cp "${install_dir}/${module_name}/handlers/"* "/etc/acpi/actions"
+cp "${install_dir}/${module_name}/events/"* "/etc/acpi/events"
 
 systemctl restart acpid
