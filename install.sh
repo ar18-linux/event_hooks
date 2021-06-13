@@ -38,13 +38,13 @@ obtain_sudo_password
 
 ar18_install "${install_dir}" "${module_name}" "${script_dir}"
 
-rm -f "/etc/acpi/actions/headphone-jack-handler.sh"
-mkdir -p "/etc/acpi/actions"
+echo "${ar18_sudo_password}" | sudo -Sk rm -f "/etc/acpi/actions/headphone-jack-handler.sh"
+echo "${ar18_sudo_password}" | sudo -Sk mkdir -p "/etc/acpi/actions"
 
-cp "${install_dir}/${module_name}/handlers/"* "/etc/acpi/actions"
-cp "${install_dir}/${module_name}/events/"* "/etc/acpi/events"
+echo "${ar18_sudo_password}" | sudo -Sk cp "${install_dir}/${module_name}/handlers/"* "/etc/acpi/actions"
+echo "${ar18_sudo_password}" | sudo -Sk cp "${install_dir}/${module_name}/events/"* "/etc/acpi/events"
 
-systemctl restart acpid
+echo "${ar18_sudo_password}" | sudo -Sk systemctl restart acpid
 
 ##################################SCRIPT_END###################################
 # Restore old shell values
